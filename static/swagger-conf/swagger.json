@@ -50,7 +50,7 @@
           ],
           "parameters": [
             {
-              "name": "town/city",
+              "name": "town",
               "in": "body",
               "description": "Input the town/city location",
               "required": true,
