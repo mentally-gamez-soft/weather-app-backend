@@ -1,0 +1,5 @@
+isort==5.13.2
+black==24.3.0
+Faker==24.7.1
+factory-boy==3.3.0
+pydocstyle==6.3.0
