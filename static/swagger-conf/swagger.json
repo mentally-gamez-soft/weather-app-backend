@@ -1,0 +1,166 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Weather aPP API v0.0.1a",
+      "description": "Weather API application",
+      "version": "1.0"
+    },
+    "basePath": "/weather-app-api/api/v0.0.1a",
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "definitions": {
+      "Payload_Get_Weather": {
+        "type": "object",
+        "properties": {
+            "country": {
+                "type": "string"
+              },
+              "town": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "string"
+              },
+              "longitude": {
+                "type": "string"
+              },
+              "altitude": {
+                "type": "string"
+              }
+        }
+      }
+    },
+    "paths": {
+      "/get-weather": {
+        "post": {
+          "description": "Get the weather of a location",
+          "consumes": [
+            "application/json"
+          ],
+          "summary": "Indicates the weather of an input location from user.",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "town/city",
+              "in": "body",
+              "description": "Input the town/city location",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Payload_Get_Weather"
+              }
+            },
+            {
+                "name": "country",
+                "in": "body",
+                "description": "Input the country location",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/Payload_Get_Weather"
+                }
+            },
+            {
+                "name": "latitude",
+                "in": "body",
+                "description": "Input the latitude of location",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/Payload_Get_Weather"
+                }
+            },
+            {
+                "name": "longitude",
+                "in": "body",
+                "description": "Input the longitude of location",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/Payload_Get_Weather"
+                }
+            },
+            {
+                "name": "altitude",
+                "in": "body",
+                "description": "Input the altitude of location",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/Payload_Get_Weather"
+                }
+            },
+            {
+                "name": "hours",
+                "in": "body",
+                "description": "Input the time hour of forecast",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/Payload_Get_Weather"
+                }
+            },
+            {
+                "name": "minutes",
+                "in": "body",
+                "description": "Input the time minutes of forecast",
+                "required": false,
+                "schema": {
+                  "$ref": "#/definitions/Payload_Get_Weather"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string"
+                  },
+                  "town": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "type": "string"
+                  },
+                  "longitude": {
+                    "type": "string"
+                  },
+                  "altitude": {
+                    "type": "string"
+                  },
+                  "time": {
+                    "type": "string"
+                  },
+                  "temperature": {
+                    "type": "string"
+                  },
+                  "wind": {
+                    "type": "string"
+                  },
+                  "humidity": {
+                    "type": "string"
+                  },
+                  "sunrise_time": {
+                    "type": "string"
+                  },
+                  "sunset_time": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "value": ["ok","ko"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }      
+    }
+  }
