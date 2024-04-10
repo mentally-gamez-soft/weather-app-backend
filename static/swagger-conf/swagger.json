@@ -24,15 +24,6 @@
               },
               "town": {
                 "type": "string"
-              },
-              "latitude": {
-                "type": "string"
-              },
-              "longitude": {
-                "type": "string"
-              },
-              "altitude": {
-                "type": "string"
               }
         }
       }
@@ -50,67 +41,13 @@
           ],
           "parameters": [
             {
-              "name": "town",
+              "name": "Location",
               "in": "body",
-              "description": "Input the town/city location",
+              "description": "Input the town/city and country of the location",
               "required": true,
               "schema": {
                 "$ref": "#/definitions/Payload_Get_Weather"
               }
-            },
-            {
-                "name": "country",
-                "in": "body",
-                "description": "Input the country location",
-                "required": true,
-                "schema": {
-                  "$ref": "#/definitions/Payload_Get_Weather"
-                }
-            },
-            {
-                "name": "latitude",
-                "in": "body",
-                "description": "Input the latitude of location",
-                "required": false,
-                "schema": {
-                  "$ref": "#/definitions/Payload_Get_Weather"
-                }
-            },
-            {
-                "name": "longitude",
-                "in": "body",
-                "description": "Input the longitude of location",
-                "required": false,
-                "schema": {
-                  "$ref": "#/definitions/Payload_Get_Weather"
-                }
-            },
-            {
-                "name": "altitude",
-                "in": "body",
-                "description": "Input the altitude of location",
-                "required": false,
-                "schema": {
-                  "$ref": "#/definitions/Payload_Get_Weather"
-                }
-            },
-            {
-                "name": "hours",
-                "in": "body",
-                "description": "Input the time hour of forecast",
-                "required": false,
-                "schema": {
-                  "$ref": "#/definitions/Payload_Get_Weather"
-                }
-            },
-            {
-                "name": "minutes",
-                "in": "body",
-                "description": "Input the time minutes of forecast",
-                "required": false,
-                "schema": {
-                  "$ref": "#/definitions/Payload_Get_Weather"
-                }
             }
           ],
           "responses": {
@@ -118,7 +55,11 @@
               "description": "Successful response.",
               "schema": {
                 "type": "object",
-                "properties": {
+                "properties": {                  
+                  "status": {
+                    "type": "string",
+                    "value": [0,1]
+                  },
                   "country": {
                     "type": "string"
                   },
@@ -151,10 +92,6 @@
                   },
                   "sunset_time": {
                     "type": "string"
-                  },
-                  "status": {
-                    "type": "string",
-                    "value": ["ok","ko"]
                   }
                 }
               }
