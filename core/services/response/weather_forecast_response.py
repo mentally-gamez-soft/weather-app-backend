@@ -70,7 +70,7 @@ class WeatherForecastResponse:
             "temperature": {
                 "real": self.__get_temperature(),
                 "feel": self.__get_temperature_feels_like(),
-                "humidity": self.__get_humidity_rate(),
+                "humidity": "{} %".format(self.__get_humidity_rate()),
             },
             "wind": self.__get_wind_info(),
         }
