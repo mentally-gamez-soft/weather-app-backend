@@ -4,6 +4,18 @@ from core.services.weather_service import WeatherService
 
 
 class TestApiCall(unittest.TestCase):
+    def test_weather_api_week_by_town_country(self):
+        new_weather_service = WeatherService()
+        res = new_weather_service.get_forecast(
+            **{
+                "location": "",
+                "town": "paris",
+                "country": "france",
+                "week": True,
+            }
+        )
+        print(res)
+
     def test_weather_api_single_day_by_town_country(self):
         new_weather_service = WeatherService()
         res = new_weather_service.get_forecast(

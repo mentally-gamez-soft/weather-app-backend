@@ -19,7 +19,7 @@ class WeatherService:
     def __init__(self) -> None:
         """Init the WeatherService instance."""
         self.weather_forecast: WeatherForecastResponse = None
-        self.week_forecast: list = None
+        self.week_forecast: list = []
 
     async def _getweather(
         self,
@@ -89,7 +89,7 @@ class WeatherService:
             "status": 0,
             "error": "",
             "day": self.weather_forecast.get_forecast_payload(),
-            "week": self.week_forecast,
+            "week": [x.get_forecast_payload() for x in self.week_forecast],
             # "hourly_forecasts": hourly_forecats,
         }
 

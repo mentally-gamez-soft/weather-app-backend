@@ -42,7 +42,7 @@ class DailyWeatherForecastResponse(WeatherForecastResponse):
     def __get_moon_info(self):
         return {
             "rise": self.dailyForecast.moonrise,
-            "phase": self.dailyForecast.moon_phase,
+            "phase": self.dailyForecast.moon_phase.emoji,
             "set": self.dailyForecast.moonset,
             "light": self.dailyForecast.moon_illumination,
         }
@@ -54,12 +54,12 @@ class DailyWeatherForecastResponse(WeatherForecastResponse):
             dict: a daily forecast.
         """
         return {
-            "location": self.get_location(),
+            "location": self._get_location(),
             "date": self.__get_date_forecast(),
             "temperature": self.__get_temperatures(),
             "ephemeride": {
                 "sun": self._get_sun_info(),
-                "moon": self.__get_moon_info,
+                "moon": self.__get_moon_info(),
             },
         }
 

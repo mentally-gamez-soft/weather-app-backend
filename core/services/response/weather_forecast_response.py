@@ -14,7 +14,7 @@ class WeatherForecastResponse:
         """
         self.forecast = forecast
 
-    def __get_location(self) -> dict:
+    def _get_location(self) -> dict:
         return {
             "name": self.forecast.location,
             "region": self.forecast.region,
@@ -64,13 +64,13 @@ class WeatherForecastResponse:
             dict: The current day weather forecast.
         """
         return {
-            "location": self.__get_location(),
+            "location": self._get_location(),
             "date": self.__get_datetime_forecast(),
             "weather": self.__get_weather_kind(),
             "temperature": {
                 "real": self.__get_temperature(),
                 "feel": self.__get_temperature_feels_like(),
-                "humidity": "{} %".format(self.__get_humidity_rate()),
+                "humidity": self.__get_humidity_rate(),
             },
             "wind": self.__get_wind_info(),
         }
